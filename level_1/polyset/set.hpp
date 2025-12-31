@@ -24,12 +24,12 @@ class set {
             return bag.has(val);
         }
         void print() const {
-            bag.print();
+            return bag.print();
         }
         searchable_bag& get_bag() const {
-            return bag;
+            return  bag;
         }
         void clear() const {
-            bag.clear();
+            return bag.clear();
         }
 };

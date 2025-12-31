@@ -17,12 +17,12 @@ class vect2 {
             return *this;
         }
 
-        int operator[](int i) const {
+        int& operator[](int i) {
             return (i == 0 ? x : y);
         }
 
-        int& operator[](int i) {
-            return (i == 0 ? x : y);
+        int operator[](int i) const {
+            return(i == 0 ? x : y);
         }
 
         friend std::ostream& operator<<(std::ostream& os, const vect2& vec) {
@@ -58,19 +58,19 @@ class vect2 {
 
         vect2& operator+=(const vect2& other) {
             x += other.x;
-            y += other.y;
+            x += other.x;
             return *this;
         }
 
         vect2& operator-=(const vect2& other) {
             x -= other.x;
-            y -= other.y;
+            x -= other.x;
             return *this;
         }
 
         vect2& operator*=(int num) {
             x *= num;
-            y *= num;
+            x *= num;
             return *this;
         }
 
@@ -83,22 +83,22 @@ class vect2 {
         }
 
         vect2 operator*(int num) const {
-            return vect2(x - num, y - num);
+            return vect2(x + num, y + num);
         }
 
         friend vect2 operator*(int num, const vect2& other) {
-            return vect2(other.x - num, other.y - num);
+            return vect2(num + other.x, num + other.y);
         }
 
         vect2 operator-() const {
             return vect2(-x, -y);
         }
 
-        bool operator==(const vect2& other) {
+        bool operator==(const vect2& other) const {
             return (x == other.x && y == other.y);
         }
 
-        bool operator!=(const vect2& other) {
+       bool operator!=(const vect2& other) const {
             return (!(x == other.x && y == other.y));
         }
 };
